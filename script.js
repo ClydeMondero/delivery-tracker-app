@@ -32,4 +32,38 @@ addButton.addEventListener("click", () => {
   recipientName.value = "";
   number.value = "";
   address.value = "";
+
+  renderDeliveries();
+});
+
+const deliveryTable = document.getElementById("delivery-tbl");
+
+function renderDeliveries() {
+  deliveryTable.innerHTML = "";
+
+  deliveries.map((delivery) => {
+    let tr = "<tr>";
+    tr += "<td>" + delivery.recipientName + "</td>";
+    tr += "<td>" + delivery.number + "</td>";
+    tr += "<td>" + delivery.address + "</td></tr>";
+    deliveryTable.innerHTML += tr;
+  });
+}
+
+getDeliveries();
+renderDeliveries();
+
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", () => {
+  let filter = search.value.toUpperCase();
+  let trs = deliveryTable.getElementsByTagName("tr");
+
+  for (let i = 0; i < trs.length; i++) {
+    if (trs[i].textContent.toUpperCase().includes(filter)) {
+      trs[i].classList.remove("hidden");
+    } else {
+      trs[i].classList.add("hidden");
+    }
+  }
 });

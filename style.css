@@ -13,6 +13,42 @@ body {
 
 .add-delivery {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+#add-btn {
+  padding: 0.5rem 1rem;
+}
+
+.tbl-container {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+table,
+thead,
+th,
+tbody,
+tr,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+thead {
+  color: white;
+  background-color: black;
+  position: sticky;
+  top: 0;
+}
+
+#search {
+  padding: 0.5rem 1rem;
+}
+
+.hidden {
+  display: none;
 }
